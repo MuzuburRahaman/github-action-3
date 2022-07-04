@@ -57,3 +57,9 @@ jobs:
         run: |
           docker build . -t demo-java:v1
           docker images -a
+
+      - name: docker login
+        run: docker login -u ${{ secrets.DOCKERHUB_USER }} -p ${{ secrets.DOCKERHUB_PASS }}
+
+      - name: docker push
+        run: docker push demo-java:v1
