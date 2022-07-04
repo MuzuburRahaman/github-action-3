@@ -42,7 +42,7 @@ jobs:
         run: |
           docker --version
           docker ps
-          docker
+          docker images -a
 
       - name: to check files
         run: |
@@ -52,3 +52,8 @@ jobs:
           ls
           cd libs
           ls
+
+      - name: to build docker images
+        run: |
+          docker build . -t demo-java:v1
+          docker images -a
